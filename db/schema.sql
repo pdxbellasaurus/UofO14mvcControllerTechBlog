@@ -1,0 +1,6 @@
+-- DROP DATABASE
+DROP DATABASE IF EXISTS tech-blog_db;
+
+-- CREATE DATABASE
+CREATE DATABASE tech-blog_db;
+

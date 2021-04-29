@@ -20,12 +20,12 @@ Comment.belongsTo(Post, {
 })
 
 //IS RELATIONSHIP/ASSOCIATION REQUIRED?
-Comment.belongsTo(User, {
-    foreignKey: 'user_id'
-})
+// Comment.belongsTo(User, {
+//     foreignKey: 'user_id'
+// })
 
-User.hasMany(Comment,{
-  foreignKey: 'comment_id'
-})
+// User.hasMany(Comment,{
+//   foreignKey: 'comment_id'
+// })
 
 module.exports = { User, Post, Comment };

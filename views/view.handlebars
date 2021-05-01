@@ -1,20 +1,4 @@
-<section class="hero is-success">
-  <div class="hero-body">
-    <p class="title">
-       Memoirs of an Apparatus
-    </p>
-    <p class="subtitle">
-      Indeed, it is another tech blog on the interwebs
-    </p>
-  </div>
-</section>
-
-<section class="columns is-multiline">
-
-{{#each posts as |post| }}
-
-<div class="card column is-4">
-  <div class="card-content">
+<div class="card-content">
     <div class="media">
 
       <div class="media-content">
@@ -24,7 +8,7 @@
         <p class="subtitle is-6">{{user.name}}</p>
       </div>
     </div>
-
+{{!-- if statement then partial for the homepage? --}}
     <div class="content">
       {{post_body}}
 
@@ -46,7 +30,3 @@
     </footer>
   </div>
 </div>
-
-{{/each}}
-
-</section>

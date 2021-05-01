@@ -27,9 +27,7 @@ router.get('/', async (req, res) => {
   router.get('/post/:id', async (req, res) => {
     try {
       const postData = await Post.findByPk(req.params.id, {
-        include: [
-          { model: User, attributes: ['name'] },
-        ],
+        include: [{ model: Post }],
       });
   
       const post = postData.get({ plain: true });
@@ -48,7 +46,7 @@ router.get('/', async (req, res) => {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        include: [{ model: Post }],
+        include: [ { model: Post } ],
       });
   
       const user = userData.get({ plain: true });

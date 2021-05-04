@@ -1,0 +1,43 @@
+<section class="container">
+			<div class="columns">
+				<div class="column is-3">
+				
+					<aside class="menu">
+						
+						<ul class="list">
+							<li>{{user.name}}</li>
+                          <li class="box">Bio text</li>
+						</ul>
+					</aside>
+                  	<a class="button is-success is-block is-alt is-medium" href="/post">New Post</a>
+				</div>
+				<div class="column is-9">
+					<div class="box content">
+                        {{#if posts.length}}
+                      <h3 class="has-text-success">Memoirs You Released to the Public:</h3>
+						 {{#each posts as |post|}}
+                      <article class="post">
+                          <a href="/#">
+							<h4>{{title}}</h4></a>
+							<div class="media">
+								
+								<div class="media-content">
+									<div class="content">
+										<p>
+											{{post_body}}
+											
+										</p>
+									</div>
+								</div>
+								<div class="media-right">
+									<span class="has-text-info"><i class="fa fa-comments"></i> {{comment.length}}</span>
+								</div>
+							</div>
+						</article>
+                        {{/each}}
+                      {{/if}}
+                     
+					</div>
+				</div>
+			</div>
+		</section>

@@ -3,7 +3,7 @@
 
       <div class="media-content">
        <p>
-<a href="/posts/{{id}}" class="title is-4">{{title}}</a>
+<a href="/post/{{id}}" class="title is-4">{{title}}</a>
        </p> 
         <p class="subtitle is-6">{{user.name}}</p>
       </div>
@@ -19,12 +19,51 @@
         </span>
       </p>
       <p class="card-footer-item">
+           {{#if post.comments.length}}
         <span class="icon has-text-success">
           <i class="fas fa-comment-alt">
-            {{comment.[0].length}}
+            {{post.comments.[0].length}}
           </i>
         </span>
+        {{/if}}
       </p>
     </footer>
   </div>
 </div>
+{{#each post.comments as |comment| }}
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>{{user.name}}</strong> on {{post.format_date date_created}}
+          <br>
+          {{post.comments.content}}
+        </p>
+      </div>
+     </div>
+    <!-- <div class="media-right">
+      <button class="delete"></button>
+    </div> -->
+  </article>
+{{/each}}
+{{#if logged_in}}
+<article class="comment-form media ">
+  
+<div class="media-content">
+    <div class="field">
+      <p class="control">
+        <textarea class="textarea" placeholder="Add a comment..." id="comment"></textarea>
+      </p>
+    </div>
+    <nav class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <a class="button is-info">Submit</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+  
+  </article>
+{{/if}}
+<script src="/js/comment.js"></script>

@@ -19,9 +19,11 @@
 
       <div class="media-content">
        <p>
-<a href="/posts/{{id}}" class="title is-4">{{title}}</a>
+<a href="/post/{{id}}" class="title is-4">{{title}}</a>
        </p> 
-        <p class="subtitle is-6">{{user.name}}</p>
+        <p class="subtitle is-6">
+          {{user.name}}
+        </p>
       </div>
     </div>
 
@@ -37,6 +39,7 @@
         </span>
       </p>
       <p class="card-footer-item">
+        
         <span class="icon has-text-success">
           <i class="fas fa-comment-alt">
             {{comments.length}}

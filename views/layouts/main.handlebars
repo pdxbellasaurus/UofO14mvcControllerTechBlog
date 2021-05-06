@@ -40,7 +40,7 @@
         <div class="navbar">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button is-primary" href="/signup">
+              <a class="button is-success" href="/signup">
                 <strong>Sign up</strong>
               </a>
               <a class="button is-light" href="/login">
@@ -52,22 +52,30 @@
         {{/if}}
       </div>
     </nav>
-{{!-- --------------------------- --}}
-
-
-
-{{!-- ------------------------------ --}}
     
   </header>
 
-  <main class="">
+  <main>
+
     {{{ body }}}
+
   </main>
 
-  <footer>
+  <footer class="footer">
+   
+<div class="content has-text-centered">
+<div class="control">
+    <div class="tags has-addons">
+         <a class="" href="https://github.com/pdxbellasaurus">
+         <span class="tag is-dark"><i class="fab fa-github"></i></span>
+      <span class="tag is-success">pdxbellasaurus</span>
+</a>
+    </div>
+  </div>
+  </div>
 
-  </footer>
-
+   </footer>
+ 
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}

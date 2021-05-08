@@ -5,11 +5,11 @@
 					<aside class="menu">
 						
 						<ul class="list">
-							<li>{{user.name}}</li>
+							<li>Welcome {{name}}</li>
                           <li class="box">Bio text</li>
 						</ul>
 					</aside>
-                  	<a class="button is-success is-block is-alt is-medium" href="./new-post">New Post</a>
+                  	<a class="button is-success is-block is-alt is-medium" href="/new-post">New Post</a>
 				</div>
 				<div class="column is-9">
 					<div class="box content">
@@ -19,6 +19,7 @@
                       <article class="post">
                           <a href="/#">
 							<h4>{{title}}</h4></a>
+							<p>Created on  <time datetime="2016-1-1">{{format_date date_created}}</time></p>
 							<div class="media">
 								
 								<div class="media-content">
@@ -30,7 +31,7 @@
 									</div>
 								</div>
 								<div class="media-right">
-									<span class="has-text-info"><i class="fa fa-comments"></i> {{comment.length}}</span>
+									<span class="has-text-info"><i class="fa fa-comments"></i>  {{comments.length}}</span>
 								</div>
 							</div>
 						</article>

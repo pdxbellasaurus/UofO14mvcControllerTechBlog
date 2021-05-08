@@ -19,10 +19,10 @@
         </span>
       </p>
       <p class="card-footer-item">
-           {{#if post.comments.length}}
+           {{#if comments.length}}
         <span class="icon has-text-success">
           <i class="fas fa-comment-alt">
-            {{post.comments.[0].length}}
+            {{comments.[0].length}}
           </i>
         </span>
         {{/if}}
@@ -35,7 +35,7 @@
     <div class="media-content">
       <div class="content">
         <p>
-          <strong>{{user.name}}</strong> on {{post.format_date date_created}}
+          <strong>{{user.name}}</strong>
           <br>
           {{post.comments.content}}
         </p>
@@ -52,13 +52,14 @@
 <div class="media-content">
     <div class="field">
       <p class="control">
+        <input type="hidden" name="postId" value="{{post_id.id}}"/>
         <textarea class="textarea" placeholder="Add a comment..." id="comment"></textarea>
       </p>
     </div>
     <nav class="level">
       <div class="level-left">
         <div class="level-item">
-          <a class="button is-info">Submit</a>
+          <a class="button is-info" id="post-submit">Submit</a>
         </div>
       </div>
     </nav>

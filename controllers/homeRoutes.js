@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
     try {
       // Get all posts and JOIN with user data
       const postData = await Post.findAll({
-        include: [{ model: User }],
+        include: [{ model: User, model: Comment }],
       });
   
       // Serialize data so the template can read it
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
       // Pass serialized data and session flag into template
       res.render('homepage', { 
         posts, 
-        logged_in: true 
+        logged_in: req.session.logged_in 
       });
     } catch (err) {
       res.status(500).json(err);
@@ -27,18 +27,11 @@ router.get('/', async (req, res) => {
       const postData = await Post.findOne({
         where: { id: req.params.id },
         attributes: ['id','title','post_body','date_created'],
-        include: [
-            { model: Comment,
-                attributes: ['id', 'content', 'post_id', 'user_id'],
-                include: { model: User, attributes: ['name']
-                }
-            },
-            { model: User, attributes: { exclude: ['password'] },
-            }
-        ]
-    });
+        include: [{ model: Comment, model: User}],
+               });
 
       const post = postData.get({ plain: true });
+      console.log("post", post)
         res.render('view', {
         ...post,
         logged_in: true
@@ -54,7 +47,7 @@ router.get('/', async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Post, through: User}],
+      include: [{ model: Post}]
     });
 
     const user = userData.get({ plain: true });
@@ -86,13 +79,35 @@ router.get('/', async (req, res) => {
     res.render('signup');
   });
 
-  router.get('./new-post', (req, res) => {
-    if (req.session.logged_in) {
-      res.redirect('/profile');
-      return;
-    }
+  // router.get('/new-post', (req, res) => {
+  //   if (!req.session.logged_in) {
+  //     res.redirect('/login');
+  //     return;
+  //   }
   
-    res.render('new-post');
-  });
+  //   res.render('new-post', {
+  //     logged_in: true
+  //   });
+  // });
+
+  router.get('/new-post', withAuth, async (req, res) => {
+    try{
+
+      const userData = await User.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+        include: [{ model: Post }],
+      });
+
+      const user = userData.get({ plain: true });
+
+      res.render('new-post', {
+        user: user,
+        logged_in: req.session.logged_in
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  })
+
 
 module.exports = router;

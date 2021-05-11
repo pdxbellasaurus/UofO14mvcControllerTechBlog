@@ -1,3 +1,4 @@
+
 # Model-View-Controller (MVC): Tech Blog
 
 ## Launch the Application
@@ -13,27 +14,27 @@ When a user visit's the site for the first time they are presented with the home
 
 #### Signup Page
 
-[!Signup Page]()
+<img width="135" alt="signup" src="https://user-images.githubusercontent.com/74746211/117801907-ace3eb80-b209-11eb-9476-33b9f6b6d45d.PNG">
 
 #### Login Page
 
-[!Login Page]()
+<img width="156" alt="login" src="https://user-images.githubusercontent.com/74746211/117802023-cf760480-b209-11eb-8003-77496ca87226.PNG">
 
 #### Homepage
 
-[!Homepage]()
+<img width="307" alt="homepage" src="https://user-images.githubusercontent.com/74746211/117802068-dac93000-b209-11eb-836c-fd7e36982d56.PNG">
 
 #### Profile Page
 
-[!Profile]()
+<img width="379" alt="profile" src="https://user-images.githubusercontent.com/74746211/117802103-e3ba0180-b209-11eb-9c62-aedea2b3aa7e.PNG">
 
 #### New Post Page
 
-[!New Post]()
+<img width="309" alt="new-post" src="https://user-images.githubusercontent.com/74746211/117802125-eae10f80-b209-11eb-8388-5aa4d3fbb99e.PNG">
 
 #### View Post and Comment
 
-[!View Post and Comment]()
+<img width="302" alt="view-post" src="https://user-images.githubusercontent.com/74746211/117802141-f2a0b400-b209-11eb-9058-530644d95e58.PNG">
 
 ______________________________
 Week 14 Homework - UofO14mvcTechBlog

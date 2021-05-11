@@ -2,7 +2,7 @@
 # Model-View-Controller (MVC): Tech Blog
 
 ## Launch the Application
-[Memoirs of an Apparatus]()
+[Memoirs of an Apparatus](https://young-crag-23305.herokuapp.com/)
 ## Overview
 Memoirs of an Apparatus is a blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. The application’s folder structure follows the Model-View-Controller paradigm. The application utilizes the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for the Views, the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for the Models, and create an Express.js API for the Controllers.
 

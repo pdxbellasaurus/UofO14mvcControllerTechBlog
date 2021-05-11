@@ -1,7 +1,7 @@
 <section class="hero is-success">
   <div class="hero-body">
     <p class="title">
-       Memoirs of an Apparatus
+      Memoirs of an Apparatus
     </p>
     <p class="subtitle">
       Indeed, it is another tech blog on the interwebs
@@ -10,46 +10,36 @@
 </section>
 
 <section class="columns is-multiline">
-
-{{#each posts as |post| }}
-
-<div class="card column is-4">
-  <div class="card-content">
-    <div class="media">
-
-      <div class="media-content">
-       <p>
-<a href="/post/{{id}}" class="title is-4">{{title}}</a>
-       </p> 
-        <p class="subtitle is-6">
-         {{user.name}}
-        </p>
+  {{#each posts as |post| }}
+  <div class="card column is-4">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <p>
+            <a href="/post/{{id}}" class="title is-4">{{title}}</a>
+          </p>
+          <p class="subtitle is-6">
+            {{user.name}}
+          </p>
+        </div>
       </div>
+      <div class="content">
+        {{post_body}}
+      </div>
+      <footer class="card-footer">
+        <p class="card-footer-item">
+          <span> Created on:
+            <time datetime="2016-1-1">{{format_date date_created}}</time>
+          </span>
+        </p>
+        <p class="card-footer-item">
+          <span class="icon has-text-success count-icon">
+            <i class="fas fa-2x fa-comment-alt"></i>
+            <span class="count"> {{comments.length}}</span>
+          </span>
+        </p>
+      </footer>
     </div>
-
-    <div class="content">
-      {{post_body}}
-
-    </div>
-
-    <footer class="card-footer">
-      <p class="card-footer-item">
-        <span> Created on:
-          <time datetime="2016-1-1">{{format_date date_created}}</time>
-        </span>
-      </p>
-      <p class="card-footer-item">
-        
-        <span class="icon has-text-success">
-          <i class="fas fa-comment-alt">
-            {{comments.length}}
-          </i>
-        </span>
-      </p>
-    </footer>
   </div>
-</div>
-
-{{/each}}
-
+  {{/each}}
 </section>

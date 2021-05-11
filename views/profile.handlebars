@@ -1,44 +1,47 @@
-<section class="container">
-			<div class="columns">
-				<div class="column is-3">
-				
-					<aside class="menu">
-						
-						<ul class="list">
-							<li>Welcome {{name}}</li>
-                          <li class="box">Bio text</li>
-						</ul>
-					</aside>
-                  	<a class="button is-success is-block is-alt is-medium" href="/new-post">New Post</a>
-				</div>
-				<div class="column is-9">
-					<div class="box content">
-                        {{#if posts.length}}
-                      <h3 class="has-text-success">Memoirs You Released to the Public:</h3>
-						 {{#each posts as |post|}}
-                      <article class="post">
-                          <a href="/#">
-							<h4>{{title}}</h4></a>
-							<p>Created on  <time datetime="2016-1-1">{{format_date date_created}}</time></p>
-							<div class="media">
-								
-								<div class="media-content">
-									<div class="content">
-										<p>
-											{{post_body}}
-											
-										</p>
-									</div>
-								</div>
-								<div class="media-right">
-									<span class="has-text-info"><i class="fa fa-comments"></i>  {{comments.length}}</span>
-								</div>
+<section class="container mt-5">
+	<div class="columns">
+		<div class="column is-3">
+			<aside class="menu">
+				<ul class="list">
+					<li class="subtitle is-3">Welcome <strong>{{name}}</strong></li>
+					<li class="box">
+						{{!-- {{bio}} --}}
+					</li>
+				</ul>
+			</aside>
+			<a class="button is-success is-block is-alt is-medium" href="/new-post">New Post</a>
+		</div>
+		<div class="column is-9">
+			<div class="box content">
+				{{#if posts.length}}
+				<h3 class="has-text-success">Memoirs You Released to the Public:</h3>
+				{{#each posts as |post|}}
+				<article class="post">
+					<a href="/post/{{id}}">
+						<h4>{{title}}</h4>
+					</a>
+					<p>Created on <time datetime="2016-1-1">{{format_date date_created}}</time></p>
+					<div class="media">
+						<div class="media-content">
+							<div class="content">
+								<p>
+									{{post_body}}
+								</p>
 							</div>
-						</article>
-                        {{/each}}
-                      {{/if}}
-                     
+						</div>
+						<div class="media-right">
+							<span class="has-text-info count-icon">
+								<i class="fa fa-2x fa-comment-alt"></i>
+								<span class="count">
+									{{comments.length}}
+								</span>
+							</span>
+						</div>
 					</div>
-				</div>
+				</article>
+				{{/each}}
+				{{/if}}
 			</div>
-		</section>
+		</div>
+	</div>
+</section>

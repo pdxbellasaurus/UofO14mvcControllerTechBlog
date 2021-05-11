@@ -9,7 +9,6 @@
       </div>
     </div>
       {{post_body}}
-
     </div>
 
     <footer class="card-footer">
@@ -19,25 +18,27 @@
         </span>
       </p>
       <p class="card-footer-item">
-           {{#if comments.length}}
-        <span class="icon has-text-success">
-          <i class="fas fa-comment-alt">
-            {{comments.[0].length}}
+           {{!-- {{#if comments.length}} --}}
+        <span class="icon has-text-success count-icon">
+          <i class="fas fa-2x fa-comment-alt">
+           <span class="count">
+{{comments.length}}
+           </span> 
           </i>
         </span>
-        {{/if}}
+        {{!-- {{/if}} --}}
       </p>
     </footer>
   </div>
 </div>
-{{#each post.comments as |comment| }}
+{{#each comments }}
   <article class="media">
     <div class="media-content">
       <div class="content">
         <p>
           <strong>{{user.name}}</strong>
           <br>
-          {{post.comments.content}}
+          {{content}}
         </p>
       </div>
      </div>
@@ -52,14 +53,14 @@
 <div class="media-content">
     <div class="field">
       <p class="control">
-        <input type="hidden" name="postId" value="{{post_id.id}}"/>
-        <textarea class="textarea" placeholder="Add a comment..." id="comment"></textarea>
+        <input type="hidden" name="post_id" value="{{id}}"/>
+        <textarea class="textarea" placeholder="Add a comment..." for="content" id="comment"></textarea>
       </p>
     </div>
     <nav class="level">
       <div class="level-left">
         <div class="level-item">
-          <a class="button is-info" id="post-submit">Submit</a>
+          <button class="button is-info" type="button" id="post-submit">Submit</button>
         </div>
       </div>
     </nav>

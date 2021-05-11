@@ -26,8 +26,7 @@ router.get('/', async (req, res) => {
     try {
       const postData = await Post.findOne({
         where: { id: req.params.id },
-        attributes: ['id','title','post_body','date_created'],
-        include: [{ model: Comment, model: User}],
+        include: [{ model: User, attributes: { exclude: ['password']}, model: Comment, include: [User] }],
                });
 
       const post = postData.get({ plain: true });
@@ -78,17 +77,6 @@ router.get('/', async (req, res) => {
   
     res.render('signup');
   });
-
-  // router.get('/new-post', (req, res) => {
-  //   if (!req.session.logged_in) {
-  //     res.redirect('/login');
-  //     return;
-  //   }
-  
-  //   res.render('new-post', {
-  //     logged_in: true
-  //   });
-  // });
 
   router.get('/new-post', withAuth, async (req, res) => {
     try{

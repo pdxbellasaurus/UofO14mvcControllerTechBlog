@@ -36,17 +36,14 @@ router.post('/', withAuth, async (req, res) => {
     const newComment = await Comment.create({
       include: [{ model: Post, model: User }],
       ...req.body,
-      // post_id: postId,
+      post_id: post_id,
       user_id: req.session.user_id,
     });
-    console.log('NEW COMMENT DATA ======================');
-    console.log(req.body);
     res.status(200).json(newComment);
   } catch (err) {
     res.status(400).json(err);
   }
 });
-
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {

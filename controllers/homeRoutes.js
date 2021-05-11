@@ -6,7 +6,10 @@ router.get('/', async (req, res) => {
     try {
       // Get all posts and JOIN with user data
       const postData = await Post.findAll({
-        include: [{ model: User, model: Comment }],
+       include: [
+         { model: User, attributes: ['name'] },
+         { model: Comment }
+        ]
       });
   
       // Serialize data so the template can read it
@@ -26,8 +29,9 @@ router.get('/', async (req, res) => {
     try {
       const postData = await Post.findOne({
         where: { id: req.params.id },
-        include: [{ model: User, attributes: { exclude: ['password']}, model: Comment, include: [User] }],
-               });
+        include: [{ model: User, attributes: { exclude: ['password']}, 
+        model: Comment, include: [User] }]
+      });
 
       const post = postData.get({ plain: true });
       console.log("post", post)
@@ -46,7 +50,7 @@ router.get('/', async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Post}]
+      include: [{ model: Post, include: Comment }]
     });
 
     const user = userData.get({ plain: true });

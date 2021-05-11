@@ -1,71 +1,100 @@
-<div class="card-content">
-    <div class="media">
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-10 is-offset-1">
+        <div class="box">
+          <p class='has-text-centered is-size-4 has-text-weight-semibold'>Memoirs of an</p>
+          <figure class="logo">
+            <img src="https://static.thenounproject.com/png/2195395-200.png" width="96" height="96">
+          </figure>
+          <p class='has-text-centered is-size-4 as-text-weight-semibold block'>Apparatus</p>
+          <hr>
 
-      <div class="media-content">
-       <p>
-<a href="/post/{{id}}" class="title is-4">{{title}}</a>
-       </p> 
-        <p class="subtitle is-6">{{user.name}}</p>
-      </div>
-    </div>
-      {{post_body}}
-    </div>
+          <div class="card-content">
+            <div class="media">
 
-    <footer class="card-footer">
-      <p class="card-footer-item">
-        <span>
-          <time datetime="2016-1-1">{{format_date date_created}}</time>
-        </span>
-      </p>
-      <p class="card-footer-item">
-           {{!-- {{#if comments.length}} --}}
-        <span class="icon has-text-success count-icon">
-          <i class="fas fa-2x fa-comment-alt">
-           <span class="count">
-{{comments.length}}
-           </span> 
-          </i>
-        </span>
-        {{!-- {{/if}} --}}
-      </p>
-    </footer>
-  </div>
-</div>
-{{#each comments }}
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong>{{user.name}}</strong>
-          <br>
-          {{content}}
-        </p>
-      </div>
-     </div>
-    <!-- <div class="media-right">
+              <div class="media-content">
+                <p>
+                  <a href="/post/{{id}}" class="title is-4">{{title}}</a>
+                </p>
+                <p class="subtitle is-6">{{user.name}}</p>
+              </div>
+            </div>
+            {{post_body}}
+          </div>
+
+          <footer class="card-footer">
+            <p class="card-footer-item">
+              <span>
+                <time datetime="2016-1-1">{{format_date date_created}}</time>
+              </span>
+            </p>
+            <p class="card-footer-item">
+              {{!-- {{#if comments.length}} --}}
+              <span class="icon has-text-success count-icon">
+                <i class="fas fa-2x fa-comment-alt">
+                  <span class="count">
+                    {{comments.length}}
+                  </span>
+                </i>
+              </span>
+              {{!-- {{/if}} --}}
+            </p>
+          </footer>
+         <hr>
+      {{#each comments }}
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>{{user.name}}</strong>
+              <br>
+              {{content}}
+            </p>
+          </div>
+        </div>
+        <!-- <div class="media-right">
       <button class="delete"></button>
     </div> -->
-  </article>
-{{/each}}
-{{#if logged_in}}
-<article class="comment-form media ">
-  
-<div class="media-content">
-    <div class="field">
-      <p class="control">
-        <input type="hidden" name="post_id" value="{{id}}"/>
-        <textarea class="textarea" placeholder="Add a comment..." for="content" id="comment"></textarea>
-      </p>
-    </div>
-    <nav class="level">
-      <div class="level-left">
-        <div class="level-item">
-          <button class="button is-info" type="button" id="post-submit">Submit</button>
+      </article>
+      {{/each}}
+      {{#if logged_in}}
+      <article class="comment-form media ">
+
+        <div class="media-content">
+          <div class="field">
+            <p class="control">
+              <input type="hidden" name="post_id" value="{{id}}" />
+              <textarea class="textarea" placeholder="Add a comment..." for="content" id="comment"></textarea>
+            </p>
+          </div>
+          <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <button class="button is-info" type="button" id="post-submit">Submit</button>
+              </div>
+            </div>
+          </nav>
         </div>
+
+      </article>
+      {{/if}}
+</div>
       </div>
-    </nav>
+
+
+
+
+    </div>
   </div>
-  
-  </article>
-{{/if}}
+  </div>
+  </div>
+</section>
+
+
+
+
+
+
+
 <script src="/js/comment.js"></script>

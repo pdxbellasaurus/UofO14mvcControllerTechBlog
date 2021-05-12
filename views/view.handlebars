@@ -10,7 +10,7 @@
           <p class='has-text-centered is-size-4 as-text-weight-semibold block'>Apparatus</p>
           <hr>
 
-          <div class="card-content">
+          <div class="card-content has-text-left">
             <div class="media">
 
               <div class="media-content">
@@ -25,12 +25,11 @@
 
           <footer class="card-footer">
             <p class="card-footer-item">
-              <span>
+              <span>Created on:
                 <time datetime="2016-1-1">{{format_date date_created}}</time>
               </span>
             </p>
             <p class="card-footer-item">
-              {{!-- {{#if comments.length}} --}}
               <span class="icon has-text-success count-icon">
                 <i class="fas fa-2x fa-comment-alt">
                   <span class="count">
@@ -38,24 +37,25 @@
                   </span>
                 </i>
               </span>
-              {{!-- {{/if}} --}}
             </p>
           </footer>
          <hr>
       {{#each comments }}
-      <article class="media">
+      <article class="media has-text-left">
         <div class="media-content">
           <div class="content">
             <p>
               <strong>{{user.name}}</strong>
               <br>
               {{content}}
+              <br>
+        <small>Created on </small>
             </p>
           </div>
         </div>
-        <!-- <div class="media-right">
+        {{!-- <div class="media-right">
       <button class="delete"></button>
-    </div> -->
+    </div> --}}
       </article>
       {{/each}}
       {{#if logged_in}}
